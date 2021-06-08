@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">L07_My_Data_Book</string>
+    <string name="drawer_open" />
+    <string name="drawer_close" />
 </resources>
