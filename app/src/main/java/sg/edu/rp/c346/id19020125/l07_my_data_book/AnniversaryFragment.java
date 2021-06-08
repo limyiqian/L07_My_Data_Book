@@ -1,5 +1,7 @@
 package sg.edu.rp.c346.id19020125.l07_my_data_book;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -10,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AnniversaryFragment extends Fragment {
@@ -27,14 +31,31 @@ public class AnniversaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_anniversary, container, false);
-        tv = view.findViewById(R.id.tv);
-        btn = view.findViewById(R.id.btn);
+        tv = view.findViewById(R.id.textView);
+        btn = view.findViewById(R.id.buttonEdit);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+                alertDialog.setTitle("Edit Anniversary");
+                EditText etText  = new EditText(getContext());
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT);
+                etText.setLayoutParams(params);
+                alertDialog.setView(etText);
+                alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        tv.setText(etText.getText().toString());
+                    }
+                });
+                alertDialog.setNegativeButton("Cancel", null);
+                alertDialog.show();
             }
         });
+
         return view;
     }
 
