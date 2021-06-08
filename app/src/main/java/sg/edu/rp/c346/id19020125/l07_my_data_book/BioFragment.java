@@ -59,10 +59,8 @@ public class BioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-<<<<<<< HEAD
-        return inflater.inflate(R.layout.bio_fragment, container, false);
-=======
+
         return inflater.inflate(R.layout.fragment_bio, container, false);
->>>>>>> origin/master
+
     }
 }
