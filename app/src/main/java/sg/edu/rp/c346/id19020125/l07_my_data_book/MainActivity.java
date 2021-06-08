@@ -69,10 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 else if (position == 3)
                     startActivity(i);
 
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction trans = fm.beginTransaction();
-                trans.replace(R.id.content_frame, fragment);
-                trans.commit();
+                if (fragment != null){
+                    FragmentManager fm = getSupportFragmentManager();
+                    FragmentTransaction trans = fm.beginTransaction();
+                    trans.replace(R.id.content_frame, fragment);
+                    trans.commit();
+                }
 
                 //highlight selected item
                 //update title and close drawer
