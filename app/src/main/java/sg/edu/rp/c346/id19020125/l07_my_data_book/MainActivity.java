@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_activated_1, drawerItems);
         drawerList.setAdapter(aa);
 
+        ArrayAdapter ca = new NavAdapter(this, R.layout.nav_row, drawerItems);
+        drawerList.setAdapter(ca);
+
         Intent i = new Intent(MainActivity.this, AboutUs.class);
 
         FloatingActionButton fab = findViewById(R.id.fab);
