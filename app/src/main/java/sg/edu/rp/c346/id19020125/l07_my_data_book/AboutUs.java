@@ -23,15 +23,15 @@ public class AboutUs extends AppCompatActivity {
         iv = findViewById(R.id.imageView);
         String schLogo = "https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg";
 //        Picasso.with(this).load(schLogo).into(iv);
-
         Glide.with(this)
                 .load(schLogo)
                 .placeholder(R.drawable.ajax_loader)
                 .error(R.drawable.error)
-                .override(400, 250)
                 .into(iv);
 
         ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
     }
+
+
 }
