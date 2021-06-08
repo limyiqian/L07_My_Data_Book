@@ -2,10 +2,12 @@ package sg.edu.rp.c346.id19020125.l07_my_data_book;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,5 +59,28 @@ public class BioFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        String entered = tv.getText().toString();
+
+        if (!entered.isEmpty()){
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
+            SharedPreferences.Editor prefEdit = prefs.edit();
+
+            prefEdit.putString("Bio", entered);
+            prefEdit.commit();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
+        String data = prefs.getString("Bio", "");
+        tv.setText(data);
     }
 }
