@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_activated_1, drawerItems);
         drawerList.setAdapter(aa);
 
+        Intent i = new Intent(MainActivity.this, AboutUs.class);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new VaccinationFragment();
                 else if (position == 2)
                     fragment = new AnniversaryFragment();
+                else if (position == 3)
+                    startActivity(i);
 
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction trans = fm.beginTransaction();
